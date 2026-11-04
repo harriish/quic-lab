@@ -1,0 +1,27 @@
+services:
+  server:
+    build: .
+    image: quic-lab:latest
+    container_name: quic-lab-server
+    command: >
+      python -m quic_lab server
+      --host 0.0.0.0 --port 4433
+      --metrics /data/metrics.jsonl
+    ports:
+      - "4433:4433/udp"
+    volumes:
+      - metrics:/data
+    restart: unless-stopped
+
+  client:
+    build: .
+    image: quic-lab:latest
+    command: >
+      python -m quic_lab client
+      --host server --port 4433 --runs 2 --messages 5
+    profiles: ["demo"]
+    depends_on:
+      - server
+
+volumes:
+  metrics: {}
