@@ -5,6 +5,9 @@ instrumented client, JSONL connection metrics, Docker packaging and a
 Terraform/AWS deployment — the full path from "protocol on localhost" to
 "protocol running on an EC2 instance behind a security group".
 
+<img width="1408" height="768" alt="Worldline_Platform_with_QUIC_v4" src="https://github.com/user-attachments/assets/61d07a44-3f11-4e49-8116-12bfe1896515" />
+
+
 Built with Python 3.11+ and [aioquic](https://aioquic.readthedocs.io/), the same
 library powering real HTTP/3 stacks, over a custom ALPN (`quic-lab/1`).
 
